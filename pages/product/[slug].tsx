@@ -9,22 +9,30 @@ function urlFor(source: any) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Post = ({ post }: any) => {
-  const {
-    title,
-    mainImage,
-    description,
-  } = post;
+const Post = ({
+  post,
+}: {
+  post: { title: string; description: string; mainImage: string };
+}) => {
   return (
-    <article>
-      {mainImage && (
-        <div>
-          <Image src={urlFor(mainImage).url()} width={250} height={200} alt="alt" />
-        </div>
+    <>
+      {post && (
+        <article>
+          {post.mainImage && (
+            <div>
+              <Image
+                src={urlFor(post.mainImage).url()}
+                width={250}
+                height={200}
+                alt="alt"
+              />
+            </div>
+          )}
+          <h2>{post.title}</h2>
+          <h2>{post.description}</h2>
+        </article>
       )}
-      <h2>{title}</h2>
-      <h2>{description}</h2>
-    </article>
+    </>
   );
 };
 
