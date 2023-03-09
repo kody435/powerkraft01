@@ -6,7 +6,7 @@ function Carousel() {
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
-            src="/docs/images/carousel/carousel-1.svg"
+            src="https://cdn.sanity.io/images/wub429kh/production/0e2f51b71b329e866d9a4fb29c0581fb2c65c354-2054x1263.png"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />

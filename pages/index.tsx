@@ -23,22 +23,22 @@ const Index = ({ posts }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Carousel />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill ">
         {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
           <Link
             href={`/product/${encodeURIComponent(slug.current)}`}
-            className="shadow-lg "
+            className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
           >
-            <div className="text-center flex flex-col items-center justify-center">
-              <Image
-                src={urlFor(mainImage).url()}
-                width={250}
-                height={200}
-                alt="alt"
-              />
-              <h2 className="text-black font-bolder text-md p-3 text-xl font-light">
+            <img
+              src={urlFor(mainImage).url()}
+              alt=""
+              className="object-fill w-full rounded p-4"
+            />
+
+            <div className="my-3 ml-4">
+              <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
                 {title}
-              </h2>
+              </h3>
             </div>
           </Link>
         ))}
