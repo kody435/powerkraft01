@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from 'next/link'
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,14 +13,14 @@ export default function Example() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">POWERKRAFT</span>
             <img
               className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src="https://cdn.sanity.io/images/wub429kh/production/934622ff85d41ea14026c4d4ebabced19a3e656a-5196x1651.png"
               alt=""
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -36,18 +34,18 @@ export default function Example() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12"></Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-6">
-          <a
+          <Link
             href="/"
             className="text-sm font-semibold leading-6 text-gray-500 hover:text-black"
           >
             ABOUT
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             className="text-sm font-semibold leading-6 text-gray-500 hover:text-black"
           >
             CONTACT
-          </a>
+          </Link>
         </div>
       </nav>
       <Dialog
