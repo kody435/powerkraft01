@@ -9,14 +9,14 @@ export default function Example() {
   return (
     <header className="bg-white border-b-2 ">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="m-1.5 p-1.5 ">
             <span className="sr-only">POWERKRAFT</span>
             <img
-              className="h-8 w-auto"
+              className="h-16 w-auto "
               src="https://cdn.sanity.io/images/wub429kh/production/934622ff85d41ea14026c4d4ebabced19a3e656a-5196x1651.png"
               alt=""
             />
