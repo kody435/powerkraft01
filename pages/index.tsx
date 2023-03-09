@@ -4,6 +4,7 @@ import Link from "next/link";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
+import Carousel from "../components/Carousel";
 
 function urlFor(source: any) {
   return imageUrlBuilder(client).image(source);
@@ -12,6 +13,7 @@ function urlFor(source: any) {
 const Index = ({ posts }: any) => {
   return (
     <div>
+      <Carousel />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill">
         {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
           <Link
@@ -25,7 +27,7 @@ const Index = ({ posts }: any) => {
                 height={200}
                 alt="alt"
               />
-              <h2 className="text-black font-bolder text-md p-3 text-2xl font-bold">
+              <h2 className="text-black font-bolder text-md p-3 text-xl font-light">
                 {title}
               </h2>
             </div>
