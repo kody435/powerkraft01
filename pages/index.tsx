@@ -5,6 +5,7 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import Carousel from "../components/Carousel";
+import Head from "next/head";
 
 function urlFor(source: any) {
   return imageUrlBuilder(client).image(source);
@@ -13,6 +14,14 @@ function urlFor(source: any) {
 const Index = ({ posts }: any) => {
   return (
     <div>
+      <Head>
+        <title>POWERKRAFT</title>
+        <meta
+          name="description"
+          content="POWERKRAFT is a leading manufacturer of Table Tennis equiments."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Carousel />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill">
         {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
