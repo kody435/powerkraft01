@@ -1,5 +1,3 @@
-// [slug].tsx
-
 import groq from "groq";
 import client from "../../client";
 import urlFor from "@/lib/urlFor";
@@ -12,11 +10,12 @@ const Post = ({
 }: {
   post: {
     title: string;
-    description: string;
+    description: [];
     mainImage: string;
     amazonLink: string;
   };
-}) => {
+  }) => {
+  console.log("Post : ",post )
   return (
     <>
       {post && (
@@ -25,7 +24,7 @@ const Post = ({
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="ecommerce"
-                className="lg:w-1/2 w-full lg:h-auto object-fill object-center rounded"
+                className="lg:w-96 object-fill w-full h-full rounded p-4"
                 src={urlFor(post.mainImage).url()}
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -34,15 +33,20 @@ const Post = ({
                 </h2>
                 <div className="flex mb-4 mt-10"></div>
                 <p className="leading-relaxed">
-
-                  <PortableText value={post.description} components={RichTextComponent} /> 
-
+                  <PortableText
+                    value={post.description}
+                    components={RichTextComponent}
+                  ></PortableText>
                 </p>
 
-                <div className="flex">
-                  <Link className="flex ml-auto border-2 py-2 px-6 border-black  text-black text-xl translate-1 transition hover:scale-110 duration:1000 delay-100 ease-in-out" href={post.amazonLink}>
+                <div className="flex md:mt-10">
+                  <Link
+                    className="flex ml-auto border-2 py-2 px-6 border-black  text-black text-xl translate-1 transition hover:scale-110 duration:1000 delay-100 ease-in-out"
+                    href={post.amazonLink}
+                  >
                     Amazon ↗
                   </Link>
+                  <h2></h2>
                 </div>
               </div>
             </div>

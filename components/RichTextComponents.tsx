@@ -5,7 +5,7 @@ import urlFor from "@/lib/urlFor";
 export const RichTextComponent = {
   list: {
     bullet: ({ children }: any) => (
-      <ul className="ml-10 list-disc space-y-5 py-5">{children}</ul>
+      <ul className="ml-10 list-disc py-5">{children}</ul>
     ),
     number: ({ children }: any) => (
       <ol className="mt-lg list-decimal">{children}</ol>
@@ -13,13 +13,13 @@ export const RichTextComponent = {
   },
   block: {
     h2: ({ children }: any) => (
-      <h1 className="py-10 text-4xl font-bold">{children}</h1>
+      <h1 className="py-10 text-4xl font-bold text-black">{children}</h1>
     ),
     h3: ({ children }: any) => (
-      <h1 className="py-10 text-3xl font-bold">{children}</h1>
+      <h1 className="py-10 text-3xl font-bold text-black">{children}</h1>
     ),
     h4: ({ children }: any) => (
-      <h1 className="py-10 text-2xl font-bold">{children}</h1>
+      <h1 className="pt-10 text-2xl font-bold text-black">{children}</h1>
     ),
 
     blockquote: ({ children }: any) => (
@@ -38,7 +38,7 @@ export const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="underline decoration-emphasize hover:decoration-black"
+          className="underlin text-blue-500 decoration-emphasize hover:decoration-black"
         >
           {children}
         </Link>
