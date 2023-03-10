@@ -35,7 +35,7 @@ const Post = ({
                 <div className="flex mb-4 mt-10"></div>
                 <p className="leading-relaxed">
 
-                  <PortableText value={post} components={RichTextComponent} /> 
+                  <PortableText value={post.description} components={RichTextComponent} /> 
 
                 </p>
 
