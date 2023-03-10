@@ -1,12 +1,11 @@
 // [slug].tsx
 
 import groq from "groq";
-import imageUrlBuilder from "@sanity/image-url";
 import client from "../../client";
-import Image from "next/image";
 import urlFor from "@/lib/urlFor";
-import PortableText from "react-portable-text";
 import Link from "next/link";
+import { PortableText } from '@portabletext/react'
+import { RichTextComponent } from "@/components/RichTextComponents";
 
 const Post = ({
   post,
@@ -26,17 +25,17 @@ const Post = ({
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="ecommerce"
-                className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                className="lg:w-1/2 w-full lg:h-auto object-fill object-center rounded"
                 src={urlFor(post.mainImage).url()}
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">
                   {post.title}
                 </h2>
-                <div className="flex mb-4"></div>
+                <div className="flex mb-4 mt-10"></div>
                 <p className="leading-relaxed">
 
-                  {/* Description */}
+                  <PortableText value={post.description} components={RichTextComponent} /> 
 
                 </p>
 
