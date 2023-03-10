@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,8 +60,8 @@ export default function Example() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">POWERKRAFT</span>
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-16 w-auto"
+                src="https://cdn.sanity.io/images/wub429kh/production/934622ff85d41ea14026c4d4ebabced19a3e656a-5196x1651.png"
                 alt=""
               />
             </a>

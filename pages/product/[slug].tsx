@@ -4,15 +4,12 @@ import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../../client";
 import Image from "next/image";
+import urlFor from "@/lib/urlFor";
+import PortableText from "react-portable-text";
+import Link from "next/link";
 
-function urlFor(source: any) {
-  return imageUrlBuilder(client).image(source);
-}
-
-const Post = ({
-  post,
-}: {
-  post: { title: string; description: string; mainImage: string };
+const Post = ({post}: {
+  post: { title: string; description: string; mainImage: string, amazonLink : string };
 }) => {
   return (
     <>
@@ -24,12 +21,14 @@ const Post = ({
                 src={urlFor(post.mainImage).url()}
                 width={250}
                 height={200}
-                alt="alt"
+                alt={post.mainImage.alt}
               />
             </div>
           )}
           <h2>{post.title}</h2>
-          <h2>{post.description}</h2>
+          <Link className="text-black" href={post.amazonLink}>
+            Amazon
+          </Link>
         </article>
       )}
     </>
@@ -37,10 +36,12 @@ const Post = ({
 };
 
 const query = groq`*[_type == "product" && slug.current == $slug][0]{
+  ...,
   title,
   slug,
   mainImage,
   description,
+  amazonLink
 }`;
 
 export async function getStaticPaths() {

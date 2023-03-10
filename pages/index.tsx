@@ -6,10 +6,7 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import Carousel from "../components/Carousel";
 import Head from "next/head";
-
-function urlFor(source: any) {
-  return imageUrlBuilder(client).image(source);
-}
+import urlFor from "../lib/urlFor";
 
 const Index = ({ posts }: any) => {
   return (
