@@ -2,7 +2,7 @@ import groq from "groq";
 import client from "../../client";
 import urlFor from "@/lib/urlFor";
 import Link from "next/link";
-import { PortableText } from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "@/components/RichTextComponents";
 
 const Post = ({
@@ -13,9 +13,9 @@ const Post = ({
     description: [];
     mainImage: string;
     amazonLink: string;
+    similarProduct: [];
   };
   }) => {
-  console.log("Post : ",post )
   return (
     <>
       {post && (
@@ -41,7 +41,7 @@ const Post = ({
 
                 <div className="flex md:mt-10">
                   <Link
-                    className="flex ml-auto border-2 py-2 px-6 border-black  text-black text-xl translate-1 transition hover:scale-110 duration:1000 delay-100 ease-in-out"
+                    className="flex ml-auto border-2 py-2 px-6 border-black text-black text-xl translate-1 transition hover:scale-110 duration:1000 delay-100 ease-in-out"
                     href={post.amazonLink}
                   >
                     Amazon ↗
@@ -63,7 +63,8 @@ const query = groq`*[_type == "product" && slug.current == $slug][0]{
   slug,
   mainImage,
   description,
-  amazonLink
+  amazonLink,
+  similarProduct
 }`;
 
 export async function getStaticPaths() {
@@ -78,7 +79,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
   const post = await client.fetch(query, { slug });
   return {
