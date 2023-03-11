@@ -26,7 +26,7 @@ const Slider = ({
   post,
 }: {
     post: {
-    images :[]
+    sliderImages :[]
   };
 }) => {
   return (
@@ -38,7 +38,7 @@ const Slider = ({
               <img
                 alt="ecommerce"
                 className="lg:w-96 object-fill w-full h-full rounded p-4"
-                src={urlFor(post.images).url()}
+                src={urlFor(post.sliderImages).url()}
               />
             </div>
           </div>

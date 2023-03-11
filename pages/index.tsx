@@ -10,7 +10,7 @@ import Slider from "../components/Slider";
 
 const Index = ({ posts }: any) => {
   return (
-    <div>
+    <>
       <Head>
         <title>POWERKRAFT</title>
         <meta
@@ -40,7 +40,7 @@ const Index = ({ posts }: any) => {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
