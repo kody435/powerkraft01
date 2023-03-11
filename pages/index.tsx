@@ -4,9 +4,9 @@ import Link from "next/link";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-import Carousel from "../components/Carousel";
 import Head from "next/head";
 import urlFor from "../lib/urlFor";
+import Slider from "../components/Slider";
 
 const Index = ({ posts }: any) => {
   return (
@@ -19,7 +19,7 @@ const Index = ({ posts }: any) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Carousel />
+      <Slider post={} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill ">
         {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
           <Link
@@ -46,7 +46,11 @@ const Index = ({ posts }: any) => {
 
 export async function getStaticProps() {
   const posts = await client.fetch(groq`
-      *[_type == "product"]
+      *[_type == "product"]{
+        title,
+        mainImage,
+        slug
+      }
     `);
   return {
     props: {

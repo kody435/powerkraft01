@@ -13,7 +13,7 @@ const Post = ({
     description: [];
     mainImage: string;
     amazonLink: string;
-    similarProduct: [];
+    similarProduct: string;
   };
   }) => {
   return (
