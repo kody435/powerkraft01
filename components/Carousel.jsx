@@ -1,10 +1,8 @@
 import React from "react";
 
-
 // src="https://cdn.sanity.io/images/wub429kh/production/0e2f51b71b329e866d9a4fb29c0581fb2c65c354-2054x1263.png"
 // src="https://cdn.sanity.io/images/wub429kh/production/0e2f51b71b329e866d9a4fb29c0581fb2c65c354-2054x1263.png"
 // src="https://cdn.sanity.io/images/wub429kh/production/0e2f51b71b329e866d9a4fb29c0581fb2c65c354-2054x1263.png"
-
 
 function Carousel() {
   return (
