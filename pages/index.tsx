@@ -19,7 +19,7 @@ const Index = ({ posts }: any) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Slider post={} />
+      <Slider post={posts} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill ">
         {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
           <Link
