@@ -1,8 +1,8 @@
-import React from 'react'
-import urlFor from '@/lib/urlFor';
-import Link from 'next/link';
-import client from '@/client';
-import groq from 'groq';
+import React from "react";
+import urlFor from "@/lib/urlFor";
+import Link from "next/link";
+import client from "@/client";
+import groq from "groq";
 
 /*
 function Slider({posts} :any) {
@@ -22,18 +22,15 @@ function Slider({posts} :any) {
 }
 */
 
-const Slider = ({
-  post,
-}: {
-    post: {
-    sliderImages :[]
-  };
-}) => {
+const Slider = ({ post }: any) => {
   return (
     <>
       {post && (
         <section className="text-gray-600 body-font overflow-hidden">
-          <div className="container px-5 py-24 mx-auto">
+          <div
+            className="container px-5 py-24 
+          mx-auto"
+          >
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="ecommerce"
@@ -61,4 +58,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Slider
+export default Slider;

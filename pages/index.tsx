@@ -19,22 +19,22 @@ const Index = ({ posts }: any) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Slider post={posts} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill ">
-        {posts.map(({ title = "", slug = "", mainImage = "" }: any) => (
+        {posts.map((posts: any, index:number) => (
           <Link
-            href={`/product/${encodeURIComponent(slug.current)}`}
+            key={index}
+            href={`/product/${encodeURIComponent(posts.slug.current)}`}
             className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
           >
             <img
-              src={urlFor(mainImage).url()}
+              src={urlFor(posts.mainImage.asset).url()}
               alt=""
               className="object-fill w-full rounded p-4"
             />
 
             <div className="my-3 ml-4">
               <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                {title}
+                {posts.title}
               </h3>
             </div>
           </Link>
