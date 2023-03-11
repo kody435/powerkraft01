@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "@/components/RichTextComponents";
 
-const Post = ({post}: any) => {
+const Post = ({ post }: any) => {
   return (
     <>
       {post && (

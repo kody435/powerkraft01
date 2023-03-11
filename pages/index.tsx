@@ -9,6 +9,7 @@ import urlFor from "../lib/urlFor";
 import Slider from "../components/Slider";
 
 const Index = ({ posts }: any) => {
+  console.log("Posts: ", posts);
   return (
     <>
       <Head>
@@ -46,11 +47,7 @@ const Index = ({ posts }: any) => {
 
 export async function getStaticProps() {
   const posts = await client.fetch(groq`
-      *[_type == "product"]{
-        title,
-        mainImage,
-        slug
-      }
+      *
     `);
   return {
     props: {
