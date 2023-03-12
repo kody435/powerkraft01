@@ -33,15 +33,10 @@ const Post = ({
               */}
 
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                  {products.title}
-                </h2>
+                <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">{products.title}</h2>
                 <div className="flex mb-4 mt-10"></div>
                 <div className="leading-relaxed">
-                  <PortableText
-                    value={products.description}
-                    components={RichTextComponent}
-                  ></PortableText>
+                  <PortableText value={products.description} components={RichTextComponent}></PortableText>
                 </div>
 
                 <div className="flex md:mt-10">
@@ -72,9 +67,7 @@ const query = groq`*[_type == "product" && slug.current == $slug][0]{
 }`;
 
 export async function getStaticPaths() {
-  const paths = await client.fetch(
-    groq`*[_type == "product" && defined(slug.current)][].slug.current`
-  );
+  const paths = await client.fetch(groq`*[_type == "product" && defined(slug.current)][].slug.current`);
 
   return {
     paths: paths.map((slug: any) => ({ params: { slug } })),

@@ -16,7 +16,7 @@ type TProducts = {
   }[];
   sliders: {
     titleSlider: string;
-    sliderImages: { asset: { _ref: string } };
+    sliderImages: { asset: { _ref: string } }[];
   }[];
 };
 
@@ -27,28 +27,22 @@ const Index = ({ products, sliders }: TProducts) => {
     <>
       <Head>
         <title>POWERKRAFT</title>
-        <meta
-          name="description"
-          content="POWERKRAFT is a leading manufacturer of Table Tennis equiments."
-        />
+        <meta name="description" content="POWERKRAFT is a leading manufacturer of Table Tennis equiments." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-8 my-4 md:m-16">
-        {/*
-                <div>
+        <div>
           {sliders.map((slider, index) => {
             return (
               <div key={index}>
-                <img
-                  src={urlFor(slider.sliderImages.asset._ref.toString()).url()}
-                  alt=""
-                  className="w-full rounded p-4"
-                />
+                {slider.sliderImages.map((image) => (
+                  <img src={urlFor(image.asset._ref.toString()).url()} alt="" className="w-full rounded p-4" />
+                ))}
               </div>
             );
           })}
         </div>
-        */}
+
         <div>
           {products &&
             products.map((product, index) => {
@@ -59,11 +53,7 @@ const Index = ({ products, sliders }: TProducts) => {
                       href={`/product/${product.slug?.current}`}
                       className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
                     >
-                      <img
-                        src={urlFor(product.mainImage).url()}
-                        alt=""
-                        className="w-full rounded p-4"
-                      />
+                      <img src={urlFor(product.mainImage).url()} alt="" className="w-full rounded p-4" />
 
                       <div className="my-3 ml-4">
                         <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
@@ -87,7 +77,7 @@ export async function getStaticProps() {
   return {
     props: {
       products,
-      sliders
+      sliders,
     },
   };
 }

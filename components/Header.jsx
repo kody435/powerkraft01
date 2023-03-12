@@ -8,10 +8,7 @@ export default function Example() {
 
   return (
     <header className="bg-white border-b-2 ">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="m-1.5 p-1.5 ">
             <span className="sr-only">POWERKRAFT</span>
@@ -34,26 +31,15 @@ export default function Example() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12"></Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-6">
-          <Link
-            href="/"
-            className="text-sm font-semibold leading-6 text-gray-500 hover:text-black"
-          >
+          <Link href="/" className="text-sm font-semibold leading-6 text-gray-500 hover:text-black">
             ABOUT
           </Link>
-          <Link
-            href="/"
-            className="text-sm font-semibold leading-6 text-gray-500 hover:text-black"
-          >
+          <Link href="/" className="text-sm font-semibold leading-6 text-gray-500 hover:text-black">
             CONTACT
           </Link>
         </div>
       </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
