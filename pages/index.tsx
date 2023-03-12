@@ -14,6 +14,8 @@ import image from '../img-123.png'
 // ! Unused for now
 // import Slider from "@/components/Slider";
 
+// ? Test line 
+
 /**
  * ! React performance tips
  * * - Get rid of unused things OK
