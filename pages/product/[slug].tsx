@@ -5,6 +5,7 @@ import groq from "groq";
 import Link from "next/link";
 import client from "../../client";
 
+
 type TProduct = {
   product: {
     slug: { current: string };
@@ -14,6 +15,9 @@ type TProduct = {
     amazonLink: string;
   };
 };
+
+
+
 const Product = ({ product }: TProduct) => {
   // console.log("Product: ", product);
 

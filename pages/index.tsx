@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import client from "../client";
 import urlFor from "@/lib/urlFor";
+import Slider from "@/components/Slider";
 
 type TProducts = {
   products: {
@@ -12,7 +13,9 @@ type TProducts = {
     description: [];
     amazonLink: string;
   }[];
+  sliders:{}
 };
+
 
 const Index = ({ products }: TProducts) => {
   // console.log("Products: ", products);
@@ -27,15 +30,15 @@ const Index = ({ products }: TProducts) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-16 object-fill ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-8 md:m-16 object-fill ">
         {products &&
           products.map((product, index) => {
             return (
               <div key={index}>
                 {product && (
                   <Link
-                    href={`/product/${product.slug?.current}`}
-                    className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
+                  href={`/product/${product.slug?.current}`}
+                  className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
                   >
                     <img
                       src={urlFor(product.mainImage).url()}
