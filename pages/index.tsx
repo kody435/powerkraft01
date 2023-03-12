@@ -10,6 +10,7 @@ type TProducts = {
     slug: { current: string };
     title: string;
     mainImage: string;
+    // mainImage: { asset: { _ref: string } };
     description: [];
     amazonLink: string;
   }[];
