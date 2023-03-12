@@ -5,18 +5,16 @@ import groq from "groq";
 import Link from "next/link";
 import client from "../../client";
 
-
 type TProduct = {
   product: {
     slug: { current: string };
     title: string;
-    mainImage: { asset: { _ref: string } };
+    mainImage: string;
+    // mainImage: { asset: { _ref: string } };
     description: [];
     amazonLink: string;
   };
 };
-
-
 
 const Product = ({ product }: TProduct) => {
   // console.log("Product: ", product);
@@ -30,7 +28,7 @@ const Product = ({ product }: TProduct) => {
               <img
                 alt="ecommerce"
                 className="lg:w-96 object-fill w-full h-full rounded p-4"
-                src={urlFor(product.mainImage.asset._ref.toString()).url()}
+                src={urlFor(product.mainImage).url()}
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">
