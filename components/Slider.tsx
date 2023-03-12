@@ -4,7 +4,6 @@ import Link from "next/link";
 import client from "@/client";
 import groq from "groq";
 
-
 const Slider = ({ slider }: any) => {
   return (
     <>

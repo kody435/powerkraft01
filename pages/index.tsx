@@ -13,12 +13,15 @@ type TProducts = {
     description: [];
     amazonLink: string;
   }[];
-  sliders:{}
+  sliders: {
+    titleSlider: [];
+    sliderImages: [];
+  };
 };
 
-
-const Index = ({ products }: TProducts) => {
-  // console.log("Products: ", products);
+const Index = ({ products, sliders }: TProducts) => {
+  console.log("Sliders: ", sliders);
+  console.log("Sliders: ", sliders.titleSlider);
 
   return (
     <>
@@ -30,21 +33,24 @@ const Index = ({ products }: TProducts) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-8 md:m-16 object-fill ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-8 my-4 md:m-16">
         {products &&
           products.map((product, index) => {
             return (
               <div key={index}>
+                {sliders && (
+                  <div className="text-black">{ sliders.titleSlider }</div>
+                )}
                 {product && (
                   <Link
-                  href={`/product/${product.slug?.current}`}
-                  className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
+                    href={`/product/${product.slug?.current}`}
+                    className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
                   >
                     <img
                       src={urlFor(product.mainImage).url()}
                       alt=""
-                      className="object-fill w-full rounded p-4"
-                    /> 
+                      className="w-full rounded p-4"
+                    />
 
                     <div className="my-3 ml-4">
                       <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
@@ -63,10 +69,11 @@ const Index = ({ products }: TProducts) => {
 
 export async function getStaticProps() {
   const products = await client.fetch(groq`*[_type == "product"]`);
-
+  const sliders = await client.fetch(groq`*[_type == "slider"]`);
   return {
     props: {
       products,
+      sliders
     },
   };
 }
