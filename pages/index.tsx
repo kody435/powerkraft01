@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import client from "../client";
 import urlFor from "@/lib/urlFor";
+import Carousel from "nuka-carousel/lib/carousel";
+import image from '../img-123.png'
 
 // ! big bundle imports all library
 // import * as react from "react"
@@ -50,15 +52,30 @@ type TProducts = {
 
 const Index = ({ products, sliders }: TProducts) => {
   console.log("Sliders: ", sliders);
-  // ! complex logic ✅
+  // ! complex logic
   // ! this will be nother component
   const testSlider = sliders.map((slider, index) => {
     return (
-      <div key={index}>
-        {slider.sliderImages.map((image, index) => (
-          <img key={index} src={urlFor(image.asset._ref.toString()).url()} alt="" className="w-full rounded p-4" />
-        ))}
-      </div>
+      <Carousel>
+        <img
+          key={index}
+          src="https://cdn.sanity.io/images/wub429kh/production/18d524ec0bd71a0e344b1fa5fd5f90fdf84aa38b-1600x1201.jpg"
+          alt=""
+          className="rounded p-4 w-full h-80"
+        />
+        <img
+          key={index}
+          src="https://cdn.sanity.io/images/wub429kh/production/18d524ec0bd71a0e344b1fa5fd5f90fdf84aa38b-1600x1201.jpg"
+          alt=""
+          className="rounded p-4 w-full h-80"
+        />
+        <img
+          key={index}
+          src="https://cdn.sanity.io/images/wub429kh/production/18d524ec0bd71a0e344b1fa5fd5f90fdf84aa38b-1600x1201.jpg"
+          alt=""
+          className="rounded p-4 w-full h-80"
+        />
+      </Carousel>
     );
   });
 
@@ -66,11 +83,11 @@ const Index = ({ products, sliders }: TProducts) => {
     products &&
     products.map((product, index) => {
       return (
-        <div key={index}>
+        <div key={index} className="">
           {product && (
             <Link
               href={`/product/${product.slug?.current}`}
-              className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110"
+              className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110 "
             >
               <img src={urlFor(product.mainImage.asset._ref.toString()).url()} alt="" className="w-full rounded p-4" />
 
@@ -93,11 +110,13 @@ const Index = ({ products, sliders }: TProducts) => {
         <meta name="description" content="POWERKRAFT is a leading manufacturer of Table Tennis equiments." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-8 my-4 md:m-16">
-        <div>{testSlider}</div>
+      <div>
+        <div className=" bg-blue-400">{testSlider}</div>
         {/* // ! Now used  */}
         {/* <Slider/> */}
-        <div>{productList}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-8 my-4 md:m-16 bg-blue-600">
+          {productList}
+        </div>
       </div>
     </>
   );
