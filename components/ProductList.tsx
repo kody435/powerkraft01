@@ -25,7 +25,7 @@ export const ProductList = ({ products }: { products: TProd[] }) => {
   });
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:gap-6 lg:mx-3 lg:my-4 md:m-16">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-4 gap-4 xl:grid-cols-6 lg:gap-6 lg:mx-3 lg:my-4 md:m-16">
       {listProducts}
     </div>
   );
