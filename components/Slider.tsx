@@ -11,17 +11,17 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
           key={idx}
           src={urlFor(img.asset._ref.toString()).url()}
           alt=""
-          className="rounded p-4 w-full h-96"
+          className="rounded p-4 w-full h-[52]"
           width={1300}
-          height={200}
+          height={100}
         />
       );
     })
   );
 
   return (
-    <div className="flex flex-row justify-center items-center h-64 my-16">
-      <Carousel autoplay wrapAround adaptiveHeight className="">
+    <div className="flex flex-row h-[52] md:h-full w-full ">
+      <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} enableKeyboardControls className="">
         {slides}
       </Carousel>
     </div>
