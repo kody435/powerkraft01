@@ -1,44 +1,29 @@
-import React from "react";
 import urlFor from "@/lib/urlFor";
-import Link from "next/link";
-import client from "@/client";
-import groq from "groq";
+import { TSlider } from "@/pages";
+import Image from "next/image";
+import Carousel from "nuka-carousel";
 
-const Slider = ({ slider }: any) => {
+export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
+  const slides = sliders.map((slider) =>
+    slider.sliderImages.map((img, idx) => {
+      return (
+        <Image
+          key={idx}
+          src={urlFor(img.asset._ref.toString()).url()}
+          alt=""
+          className="rounded p-4 w-full h-80"
+          width={1300}
+          height={200}
+        />
+      );
+    })
+  );
+
   return (
-    <>
-      {slider && (
-        <section className="text-gray-600 body-font overflow-hidden">
-          <div
-            className="container px-5 py-24 
-          mx-auto"
-          >
-            <div className="lg:w-4/5 mx-auto flex flex-wrap">
-              {/*
-              <img
-                alt="ecommerce"
-                className="lg:w-96 object-fill w-full h-full rounded p-4"
-                src={urlFor(sliders.sliderImages).url()}
-              />
-              */}
-              <h2>{slider.title}</h2>
-            </div>
-          </div>
-        </section>
-      )}
-    </>
+    <div className="flex flex-row justify-center items-center border-solid border-black border-2 h-[300px]">
+      <Carousel autoplay wrapAround adaptiveHeight className="">
+        {slides}
+      </Carousel>
+    </div>
   );
 };
-
-export async function getStaticProps() {
-  const posts = await client.fetch(groq`
-      *[_type == "slider"]
-    `);
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-export default Slider;
