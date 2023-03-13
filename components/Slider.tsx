@@ -20,7 +20,7 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
   );
 
   return (
-    <div className="flex flex-row justify-center items-center h-96">
+    <div className="flex flex-row justify-center items-center h-64 my-16">
       <Carousel autoplay wrapAround adaptiveHeight className="">
         {slides}
       </Carousel>
