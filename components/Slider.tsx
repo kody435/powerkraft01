@@ -3,11 +3,6 @@ import { TSlider } from "@/pages";
 import Image from "next/image";
 import Carousel from "nuka-carousel";
 
-/**
- *TSlider {
-  sliderImages: { asset: { _ref: string } }[];
-};
- */
 type TSliderProps = { sliders: TSlider[] };
 export const Slider = ({ sliders }: TSliderProps) => {
   const slides = sliders.map((slider) =>

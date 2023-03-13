@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import groq from "groq";
 import Link from "next/link";
 import client from "../../client";
-import { ProductSlider } from "../../components/ProductsSlider";
+import { ProductSlider } from "../../components/ProductSlider";
 
 export type TProduct = {
   title: string;
@@ -17,7 +17,6 @@ export type TProduct = {
 
 type TProductProps = { product: TProduct; sliders: TSlider[] };
 const Product = ({ product }: TProductProps) => {
-  console.log("product: ", product);
 
   return (
     <>
