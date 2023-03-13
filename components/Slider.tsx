@@ -3,7 +3,13 @@ import { TSlider } from "@/pages";
 import Image from "next/image";
 import Carousel from "nuka-carousel";
 
-export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
+/**
+ *TSlider {
+  sliderImages: { asset: { _ref: string } }[];
+};
+ */
+type TSliderProps = { sliders: TSlider[] };
+export const Slider = ({ sliders }: TSliderProps) => {
   const slides = sliders.map((slider) =>
     slider.sliderImages.map((img, idx) => {
       return (
@@ -20,10 +26,8 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
   );
 
   return (
-    <div className="flex flex-row h-[52] md:h-full w-full ">
-      <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
-        {slides}
-      </Carousel>
-    </div>
+    <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
+      {slides}
+    </Carousel>
   );
 };
