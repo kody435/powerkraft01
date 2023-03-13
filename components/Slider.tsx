@@ -11,7 +11,7 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
           key={idx}
           src={urlFor(img.asset._ref.toString()).url()}
           alt=""
-          className="rounded p-4 w-full h-80"
+          className="rounded p-4 w-full h-96"
           width={1300}
           height={200}
         />
@@ -20,7 +20,7 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
   );
 
   return (
-    <div className="flex flex-row justify-center items-center border-solid border-black border-2 h-[300px]">
+    <div className="flex flex-row justify-center items-center h-96">
       <Carousel autoplay wrapAround adaptiveHeight className="">
         {slides}
       </Carousel>
