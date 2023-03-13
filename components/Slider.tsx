@@ -21,7 +21,7 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
 
   return (
     <div className="flex flex-row h-[52] md:h-full w-full ">
-      <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} enableKeyboardControls className="">
+      <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
         {slides}
       </Carousel>
     </div>
