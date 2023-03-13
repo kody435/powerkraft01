@@ -11,7 +11,7 @@ export const Slider = ({ sliders }: { sliders: TSlider[] }) => {
           key={idx}
           src={urlFor(img.asset._ref.toString()).url()}
           alt=""
-          className="rounded p-4 w-full h-[52]"
+          className="rounded px-1 w-full h-[52]"
           width={1300}
           height={100}
         />
