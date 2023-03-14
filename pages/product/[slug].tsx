@@ -8,6 +8,8 @@ import client from "../../client";
 import urlFor from "../../lib/urlFor";
 import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
+
+
 export type TProduct = {
   title: string;
   description: [];
@@ -19,7 +21,7 @@ export type TProduct = {
 
 type TProductProps = { product: TProduct; sliders: TSlider[] };
 const Product = ({ product }: TProductProps) => {
-  const imgs = product.images.map((img) => ({
+  const imgs = product && product?.images.map((img) => ({
     original: urlFor(img.asset._ref.toString()).url(),
     thumbnail: urlFor(img.asset._ref.toString()).url(),
   }));
@@ -27,9 +29,9 @@ const Product = ({ product }: TProductProps) => {
   return (
     <>
       {product && (
-        <section className="text-gray-600 body-font overflow-hidden">
-          <div className="container px-1 py-24 mx-auto">
-            <ImageGallery items={imgs} lazyLoad={true} autoPlay={true} infinite disableKeyDown showNav={false} showPlayButton={false} />
+        <section className="text-gray-600 body-font overflow-hidden ">
+          <div className="container px-1 py-1 mx-auto">
+            <ImageGallery items={imgs} lazyLoad={true} autoPlay={true} infinite disableKeyDown showNav={false} showPlayButton={false} disableSwipe={false} disableThumbnailScroll={false} />
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               {/*<ProductSlider product={product} />*/}
               <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0">
