@@ -1,3 +1,5 @@
 {
-  "liveshare.featureSet": "insiders"
+  "liveshare.featureSet": "insiders",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
