@@ -1,7 +1,7 @@
-import Carousel from "nuka-carousel/lib/carousel";
-import { TProduct } from "@/pages/product/[slug]";
 import urlFor from "@/lib/urlFor";
+import { TProduct } from "@/pages/product/[slug]";
 import Image from "next/image";
+import Carousel from "nuka-carousel/lib/carousel";
 
 type TProductSliderProps = { product: TProduct };
 export const ProductSlider = ({ product }: TProductSliderProps) => {
@@ -16,10 +16,10 @@ export const ProductSlider = ({ product }: TProductSliderProps) => {
     />
   ));
   return (
-      <div className="flex flex-row h-[52] md:h-full w-full ">
-    <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
-      {slides}
-    </Carousel>
-      </div>
+    <div className="flex flex-row h-[52] md:h-full w-full ">
+      <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
+        {slides}
+      </Carousel>
+    </div>
   );
 };

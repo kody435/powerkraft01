@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import urlFor from "@/lib/urlFor";
 
 export const RichTextComponent = {
   list: {
@@ -24,7 +22,7 @@ export const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="underlin text-blue-500 decoration-emphasize hover:decoration-black"
+          className="underline text-blue-500 decoration-emphasize hover:decoration-black"
         >
           {children}
         </Link>
