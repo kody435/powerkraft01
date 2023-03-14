@@ -29,7 +29,7 @@ const Product = ({ product }: TProductProps) => {
       {product && (
         <section className="text-gray-600 body-font overflow-hidden">
           <div className="container px-1 py-24 mx-auto">
-            <ImageGallery items={imgs} lazyLoad autoPlay={true} infinite disableKeyDown showNav={false} />
+            <ImageGallery items={imgs} lazyLoad={true} autoPlay={true} infinite disableKeyDown showNav={false} showPlayButton={false} />
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               {/*<ProductSlider product={product} />*/}
               <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0">
