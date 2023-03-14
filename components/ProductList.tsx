@@ -12,7 +12,13 @@ export const ProductList = ({ products }: { products: TProd[] }) => {
             href={`/product/${product.slug?.current}`}
             className="shadow-lg block group ease-in-out delay-150 duration-300 hover:-translate-1 translate hover:scale-110 "
           >
-            <Image src={urlFor(product.mainImage.asset._ref.toString()).url()} alt="" className="w-full rounded p-4" />
+            <Image
+              src={urlFor(product.mainImage.asset._ref.toString()).url()}
+              alt=""
+              className="w-full rounded p-4"
+              width={1000}
+              height={300}
+            />
 
             <div className="my-3 ml-4">
               <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">

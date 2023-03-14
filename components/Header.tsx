@@ -1,5 +1,6 @@
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -12,9 +13,11 @@ export default function Example() {
         <div className="flex lg:flex-1">
           <Link href="/" className="m-1.5 p-1.5 ">
             <span className="sr-only">POWERKRAFT</span>
-            <img
+            <Image
               className="h-16 w-auto "
-              src="https://cdn.sanity.io/images/wub429kh/production/934622ff85d41ea14026c4d4ebabced19a3e656a-5196x1651.png"
+              width={1000}
+              height={300}
+              src="https://cdn.sanity.io/images/wub429kh/production/28beb02460004cd16befb63dc1ae58eaa796143a-5196x1651.webp"
               alt=""
             />
           </Link>
@@ -45,8 +48,10 @@ export default function Example() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">POWERKRAFT</span>
-              <img
+              <Image
                 className="h-16 w-auto"
+                width={1000}
+                height={300}
                 src="https://cdn.sanity.io/images/wub429kh/production/934622ff85d41ea14026c4d4ebabced19a3e656a-5196x1651.png"
                 alt=""
               />
