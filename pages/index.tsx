@@ -2,7 +2,7 @@ import { ProductList } from "@/components/ProductList";
 import { Slider } from "@/components/Slider";
 import groq from "groq";
 import Head from "next/head";
-import client from "../client";
+import client from "../utils/client";
 
 export type TProd = {
   slug: { current: string };
@@ -28,9 +28,7 @@ const Index = ({ products, sliders }: TProducts) => {
         <meta name="description" content="POWERKRAFT is a leading manufacturer of Table Tennis equiments." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex flex-row h-[52] md:h-full w-full ">
-        <Slider sliders={sliders} />
-      </div>
+      {/* <Slider sliders={sliders} /> */}
       <ProductList products={products} />
     </div>
   );

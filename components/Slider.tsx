@@ -5,7 +5,7 @@ import Carousel from "nuka-carousel";
 
 type TSliderProps = { sliders: TSlider[] };
 export const Slider = ({ sliders }: TSliderProps) => {
-  const slides = sliders.map((slider) =>
+  const slides = sliders && sliders?.map((slider) =>
     slider.sliderImages.map((img, idx) => {
       return (
         <Image
@@ -21,8 +21,10 @@ export const Slider = ({ sliders }: TSliderProps) => {
   );
 
   return (
-    <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls className="">
-      {slides}
-    </Carousel>
+    <div className="flex flex-row h-[52] md:h-full w-full ">
+      <Carousel autoplay wrapAround adaptiveHeight withoutControls className="">
+        {slides}
+      </Carousel>
+    </div>
   );
 };
