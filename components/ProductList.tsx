@@ -1,7 +1,6 @@
 import urlFor from "@/lib/urlFor";
-import { TProd } from "@/pages";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 // export const ProductList = ({ products }: { products: TProd[] }) => {
 export type TSections = {
