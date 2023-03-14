@@ -21,7 +21,7 @@ export const Slider = ({ sliders }: TSliderProps) => {
   );
 
   return (
-    <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls zoomScale={20} className="">
+    <Carousel autoplay={true} wrapAround={true} adaptiveHeight={true} withoutControls className="">
       {slides}
     </Carousel>
   );

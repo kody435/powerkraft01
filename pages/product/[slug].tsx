@@ -4,7 +4,10 @@ import { PortableText } from "@portabletext/react";
 import groq from "groq";
 import Link from "next/link";
 import client from "../../client";
-import { ProductSlider } from "../../components/ProductSlider";
+import ImageGallery from 'react-image-gallery'
+// import { ProductSlider } from "../../components/ProductSlider";
+import urlFor from "../../lib/urlFor";
+import '../../node_modules/react-image-gallery/styles/css/image-gallery.css';
 
 export type TProduct = {
   title: string;
@@ -18,16 +21,23 @@ export type TProduct = {
 type TProductProps = { product: TProduct; sliders: TSlider[] };
 const Product = ({ product }: TProductProps) => {
 
+  const images = product.images.map((img) => ({
+    original: urlFor(img.asset._ref.toString()).url(),
+    thumbnail: urlFor(img.asset._ref.toString()).url(),
+  }))
+
   return (
     <>
       {product && (
         <section className="text-gray-600 body-font overflow-hidden">
-          <div className="container px-5 py-24 mx-auto">
+          <div className="container px-1 py-24 mx-auto">
+              <ImageGallery items={images} lazyLoad autoPlay={true} infinite />
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-              <ProductSlider product={product} />
-              <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              {/*<ProductSlider product={product} />*/}
+
+              
+              <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h2>
-                <div className="flex mb-4 mt-10"></div>
                 <div className="leading-relaxed">
                   <PortableText value={product.description} components={RichTextComponent}></PortableText>
                 </div>
