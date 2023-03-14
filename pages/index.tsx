@@ -28,7 +28,7 @@ const Index = ({ products, sliders }: TProducts) => {
         <meta name="description" content="POWERKRAFT is a leading manufacturer of Table Tennis equiments." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Slider sliders={sliders} /> */}
+      <Slider sliders={sliders} />
       <ProductList products={products} />
     </div>
   );
