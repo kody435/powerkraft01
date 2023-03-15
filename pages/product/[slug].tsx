@@ -20,6 +20,7 @@ export type TProduct = {
 
 type TProductProps = { product: TProduct; sliders: TSlider[] };
 const Product = ({ product }: TProductProps) => {
+  console.log()
   const imgs =
     product &&
     product?.images.map((img) => ({
@@ -74,7 +75,8 @@ const query = groq`*[_type == "product" && slug.current == $slug][0]{
   mainImage,
   description,
   amazonLink,
-  similarProduct
+  similarProduct,
+  categories
 }`;
 
 export async function getStaticPaths() {

@@ -17,7 +17,7 @@ export const ProductList = ({ products }: { products: TProd[] }) => {
               alt=""
               className="w-full rounded p-4"
               width={1000}
-              height={300}
+              height={500}
             />
 
             <div className="my-3 ml-4">
