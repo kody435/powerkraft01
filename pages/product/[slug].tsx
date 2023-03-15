@@ -4,9 +4,10 @@ import { PortableText } from "@portabletext/react";
 import groq from "groq";
 import Link from "next/link";
 import ImageGallery from "react-image-gallery";
+import client from "../../utils/client";
 import urlFor from "../../lib/urlFor";
 import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
-import client from "../../utils/client";
+
 
 export type TProduct = {
   title: string;
@@ -44,9 +45,9 @@ const Product = ({ product }: TProductProps) => {
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h2>
-
+                
                 <div className="leading-relaxed">
-                  <PortableText value={product.description} components={RichTextComponent} />
+                  <PortableText value={product.description} components={RichTextComponent}></PortableText>
                 </div>
 
                 <div className="flex md:mt-10">
@@ -77,15 +78,15 @@ const query = groq`*[_type == "product" && slug.current == $slug][0]{
 }`;
 
 export async function getStaticPaths() {
-  const paths: [] = await client.fetch(groq`*[_type == "product" && defined(slug.current)][].slug.current`);
+  const paths = await client.fetch(groq`*[_type == "product" && defined(slug.current)][].slug.current`);
 
   return {
-    paths: paths.map((slug) => ({ params: { slug } })),
+    paths: paths.map((slug: any) => ({ params: { slug } })),
     fallback: true,
   };
 }
 
-export async function getStaticProps(context: { params: { slug: string } }) {
+export async function getStaticProps(context: any) {
   const { slug = "" } = context.params;
   const product = await client.fetch(query, { slug });
   const sliders = await client.fetch(groq`*[_type == "slider"]`);
